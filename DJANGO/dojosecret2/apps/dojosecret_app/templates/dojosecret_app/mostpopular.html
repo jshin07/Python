@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dojo Secret</title>
+    </head>
+    <body>
+        <h1>Most Popular Secrets...</h1>
+
+
+
+        {% for secret in secrets %}                     <!-- {{secret.num_likes}} AND {#secret.liked_secret.all.count#} this works same as well. -->
+            <p>{{secret.secretmsg}}-- ({{secret.created_at}}) <em>{{secret.num_likes}} Likes </em> <a href= "{%  url 'like' secretID=secret.id %}"><strong> Like </strong></a>
+
+                {% for like in secret.liked_secret.all%}
+                 {% if like.user_id == request.session.loggedInUserID %} <span style= "color: green">You liked this</span>
+
+                 {% endif %}
+                {%endfor%}
+
+
+                {% if secret.user_id == request.session.loggedInUserID %}
+                    <span>--- You created this post :) <a href='/delete/{{secret.id}}'> Delete</a></span>
+                {% endif %}
+
+        {% endfor %}
+
+
+
+    </body>
+</html>

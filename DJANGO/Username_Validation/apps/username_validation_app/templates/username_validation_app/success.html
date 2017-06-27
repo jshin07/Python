@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Success</title>
+    </head>
+    <body>
+        <h2>The username you entered <span style="color:purple">{{user}}</span> is valid. Thank you!</h2>
+
+        <h2>Username entered:</h2>
+
+        <table border=1>
+            <tr>
+                <th>User Name</th>
+                <th>Date Added</th>
+            </tr>
+
+            {% for x in all_users %}
+            <tr>
+                <td>{{x.username}}</td>
+                <td>{{x.created_at}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login and Registration Home</title>
+    </head>
+        <body>
+
+            {% if messages %}
+            {% for message in messages %}
+            <h3 style="color:red"> {{message}} </h3>
+            {% endfor %}
+            {% endif %}
+
+            <h1>Registration</h1>
+            <form action="/register" method="post">
+            {%csrf_token%}
+                First Name: <input type="text" name="first_name"><br>
+                Last Name: <input type="text" name= "last_name"><br>
+                Email: <input type="text" name= "email"><br>
+                Password: <input type="password" name= "password"><br>
+                Confirm Password: <input type="password" name= "conf_password"><br>
+                <input type="submit" value= "Register">
+            </form><br>
+
+            <h1>Log In</h1>
+
+            <form action="/login" method="post">
+            {%csrf_token%}
+                Email: <input type="text" name= "email"><br>
+                Password: <input type="password" name= "password"><br>
+                <input type="submit" value= "login">
+            </form>
+
+            {% for user in all_users%}
+            {{all_users.0.email}}<br> {{all_users.0.first_name}} {{all_users.0.last_name}}
+            {% endfor %}
+            
+    </body>
+</html>

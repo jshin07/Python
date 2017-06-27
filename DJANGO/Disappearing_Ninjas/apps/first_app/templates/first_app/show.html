@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Disapearing Ninjas</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'first_app/css/stylesheet.css' %}" media='screen' title= 'no title' charset= 'utf-8'>
+    </head>
+    <body>
+        <h1> Ninja Color: {{color}} <h1>
+
+        {% load static %}
+        {% if color == "Purple" %}
+            <h2>Hi Donatello</h2>
+            <img src="{% static 'first_app/images/donatello.jpg' %}">
+
+        {% elif color == "Blue" %}
+            <h2>Hi Leonardo</h2>
+            <img src="{% static 'first_app/images/leonardo.jpg' %}">
+
+        {% elif color == "Orange" %}
+            <h2>Hi Michelangelo</h2>
+            <img src="{% static 'first_app/images/michelangelo.jpg' %}">
+
+        {% elif color == "Red" %}
+            <h2>Hi Raphael</h2>
+            <img src="{% static 'first_app/images/raphael.jpg' %}">
+
+        {% else %}
+            <h2>No ninjas here!</h2>
+            <img src="{% static 'first_app/images/notapril.jpg' %}">
+
+        {% endif %}
+
+</body>
+</html>
